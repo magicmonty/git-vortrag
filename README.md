@@ -5,7 +5,63 @@
 ### Initialize a git repository
 
 - create a new repository
+
+  ```bash
+  # Create a new directory
+  $ mkdir <directory>
+
+  # go into the directory
+  $ cd <directory>
+
+  # Initialize the git repository
+  $ git init
+  Leeres Git-Repository in <directory>/.git/ initialisiert
+
+  # Create an initial file. Good candidates are README.md, .gitignore
+  $ echo "# Git Test" >> README.md
+
+  $ git status
+  Auf Branch main
+
+  Noch keine Commits
+
+  Unversionierte Dateien:
+    (benutzen Sie "git add <Datei>...", um die Änderungen zum Commit vorzumerken)
+          README.md
+
+  nichts zum Commit vorgemerkt, aber es gibt unversionierte Dateien
+  (benutzen Sie "git add" zum Versionieren)
+
+  $ git add README.md
+
+  $ git status
+  Auf Branch main
+
+  Noch keine Commits
+
+  Zum Commit vorgemerkte Änderungen:
+    (benutzen Sie "git rm --cached <Datei>..." zum Entfernen aus der Staging-Area)
+          neue Datei:     README.md
+
+  $ git commit -m "Initial commit"
+  [main (Root-Commit) a84ef55] Initial commit
+   1 file changed, 1 insertion(+)
+   create mode 100644 README.md
+
+  $ git status
+  Auf Branch main
+  nichts zu committen, Arbeitsverzeichnis unverändert
+  ```
+
 - clone an existing repository
+
+  ```bash
+  git clone <url> [<directory>]
+  ```
+
+  - **Pro Tip**:
+    Setup SSH keys to avoid entering your password
+    every time you push to a remote repository.
 
 ### Working with git
 
@@ -15,16 +71,34 @@
 - Add files to the staging area
 
   ```bash
-  $ git add <file>
+  git add <file>
+  ```
+
+- Check the Status of the repository
+
+  ```bash
+  git status
   ```
 
 - Commit changes
 
   ```bash
-  $ git commit -m "commit message"
+  git commit -m "<commit message>"
   ```
 
+### Working with remote repositories
+
 ### Push changes to a remote repository
+
+- initial push
+
+  ```bash
+    git push -u <remote> <branch>
+  ```
+
+  - `-u` sets up tracking information for the branch, so git remembers the remote to push to
+
+- for each subsequent push a `git push` is sufficient
 
 ### Pull changes from a remote repository
 
@@ -43,18 +117,70 @@
 - Reset changes
 - Amend changes
 
+### Identifying Commits
+
+- HEAD, branch, tag, commit hash
+- Relative references
+
+  - `~` going back in history
+
+    ```text
+      ┌─────┐    ┌─────┐    ┌────┐    ┌───┐
+      │ X~3 │ ←─ │ X~2 │ ←─ │ X~ │ ←─ │ X │
+      └─────┘    └─────┘    └────┘    └───┘
+    ```
+
+  - `^` parent of a commit
+
+    ```text
+                           ┌─────┐
+                           │ X^3 │ ←─────┐
+                           └─────┘       │
+                           ┌─────┐       │
+                           │ X^2 │ ←───┐ │
+                           └─────┘     │ │
+      ┌─────┐    ┌─────┐    ┌────┐    ┌───┐
+      │ X~3 │ ←─ │ X~2 │ ←─ │ X~ │ ←─ │ X │
+      └─────┘    └─────┘    └────┘    └───┘
+    ```
+
+  - `~` and `^` can be combined
+
+    ```text
+                           ┌─────┐
+                           │ X^3 │ ←─────┐
+                           └─────┘       │
+               ┌──────┐    ┌─────┐       │
+               │ X^2~ │ ←─ │ X^2 │ ←───┐ │
+               └──────┘    └─────┘     │ │
+      ┌─────┐    ┌─────┐    ┌────┐    ┌───┐
+      │ X~3 │ ←─ │ X~2 │ ←─ │ X~ │ ←─ │ X │
+      └─────┘    └─────┘    └────┘    └───┘
+    ```
+
+  - Alternative writings
+
+    ```text
+      ┌─────┐    ┌─────┐    ┌────┐    ┌───┐
+      │ X~3 │ ←─ │ X~2 │ ←─ │ X~ │ ←─ │ X │
+      └─────┘    └─────┘    └────┘    └───┘
+        X~~~       X~~        X^
+        X~2                   X^1
+                              X~1
+    ```
+
+  - Used in combinations:
+    - `HEAD^` - the parent of the current commit
+    - `HEAD~3` - the third commit before the current commit
+    - `main^2` - the second parent of the main branch
+    - `2c3d4f^` - the parent of the commit with the hash `2c3d4f`
+
 ## Advanced Git
 
 ### Better commit messages
 
-- Conventional Commits
-- commitizen
-
-  ```bash
-  npm install -g commitizen
-  ```
-
-- better-commits
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+- [better-commits](https://github.com/Everduin94/better-commits)
 
   ```bash
   npm install -g better-commits
@@ -71,8 +197,6 @@ git stash drop
 ```
 
 ### Merge / Rebase
-
-#### Difference between merge and rebase
 
 ##### Merge
 
@@ -274,6 +398,12 @@ git rebase -i main
   git config --global user.email "john.doe@bayoo.net"
   ```
 
+- Set default branch name to `main`
+
+  ```bash
+  git config --global init.defaultBranch main
+  ```
+
 - Set default editor
 
   ```bash
@@ -377,8 +507,6 @@ git rebase -i main
 ### Use git hooks
 
 - husky
-
-### Use git submodules
 
 ### Use git worktree
 

@@ -1,0 +1,34 @@
+
+ ┌─ Undoing Changes ─────────────────────────────────────────────────────────────────────────────────────────
+ │
+ │  # Changes not commited yet 
+ │    - unstaged file
+ │      `git restore <file>` 
+ │    - staged file (unstage)
+ │      `git restore --staged <file>`
+ │  
+ │  
+ │  
+ │  
+ │   
+ │ 
+ │  
+ │  
+ │  
+ │  
+ │  
+ │  
+ │
+ │
+ │
+ │                                                                                                  \
+ │                                                                                                   \      |
+ │                                                                                                          |  /
+ │                                                                                                     \  \ | /  /
+ │                                                                                                    \ \  \ /  / /
+ │                                                                                                  ---- \  V  / ----
+ │                                                                                                     /  |   |  \
+ │                                                                                                    /   |   |   \
+ │                                                                                                        |   |
+ │                                                                                                
+ └                                                                                                            |

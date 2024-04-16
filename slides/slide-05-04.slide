@@ -1,0 +1,34 @@
+
+ ┌─ Undoing Changes ─────────────────────────────────────────────────────────────────────────────────────────
+ │
+ │  # Changes not commited yet 
+ │    - unstaged file
+ │      `git restore <file>` 
+ │    - staged file (unstage)
+ │      `git restore --staged <file>`
+ │  
+ │  # Committed changes 
+ │    - update/reword last commit
+ │      `git commit --amend`
+ │      **WARNING: This command rewrites History! Don't use on shared branches!**  
+ │    - Revert commit (creates a new commit that undoes the changes)
+ │      `git revert <commit>`
+ │  
+ │  # Discard changes 
+ │    - discard all changes in working directory
+ │      `git checkout -- .`
+ │ 
+ │
+ │
+ │
+ │                                                                                                  \
+ │                                                                                                   \      |
+ │                                                                                                          |  /
+ │                                                                                                     \  \ | /  /
+ │                                                                                                    \ \  \ /  / /
+ │                                                                                                  ---- \  V  / ----
+ │                                                                                                     /  |   |  \
+ │                                                                                                    /   |   |   \
+ │                                                                                                        |   |
+ │                                                                                                
+ └                                                                                                            |

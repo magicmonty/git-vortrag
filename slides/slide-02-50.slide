@@ -1,0 +1,34 @@
+
+ ┌─ Recap - Basic workflow ─────────────────────────────────────────────────────────────────────────────────────────
+ │
+ │  - Change files
+ │  - Add files to the staging area
+ │    `git add <file>`
+ │ 
+ │  - Check the status of the repository
+ │    `git status`
+ │ 
+ │  - Commit the changes
+ │    `git commit -m "<commit message>"`
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │                                                                                                  \
+ │                                                                                                   \      |
+ │                                                                                                          |  /
+ │                                                                                                     \  \ | /  /
+ │                                                                                                    \ \  \ /  / /
+ │                                                                                                  ---- \  V  / ----
+ │                                                                                                     /  |   |  \
+ │                                                                                                    /   |   |   \
+ │                                                                                                        |   |
+ │                                                                                                
+ └                                                                                                            |

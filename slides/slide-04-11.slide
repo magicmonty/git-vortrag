@@ -1,0 +1,34 @@
+
+ ┌─ Branches and Tags ─────────────────────────────────────────────────────────────────────────────────────────
+ │
+ │  - Branches and Tags are just pointers to a specific commits
+ │  - The difference is, that a branch pointer moves automatically to the latest commit 
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │
+ │                                                                                                  \
+ │                                                                                                   \      |
+ │                                                                                                          |  /
+ │                                                                                                     \  \ | /  /
+ │                                                                                                    \ \  \ /  / /
+ │                                                                                                  ---- \  V  / ----
+ │                                                                                                     /  |   |  \
+ │                                                                                                    /   |   |   \
+ │                                                                                                        |   |
+ │                                                                                                
+ └                                                                                                            |
